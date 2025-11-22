@@ -18,20 +18,20 @@ import qoutes from "../../assets/reviewQuote.png"
 const ReviewCard = ({review}) => {
     return (
         <div>
-            <div className="max-w-sm bg-white shadow-xl rounded-xl p-6 border border-gray-100">
+            <div className="max-w-sm bg-white shadow-xl mx-auto rounded-xl p-6 border border-gray-100">
       
-      {/* Quote icon */}
+      
       <div className="text-teal-300"><img src={qoutes} alt="" /></div>
 
-      {/* Text */}
+      
       <p className="text-gray-600 mt-3 leading-relaxed text-sm">
         {review.review}
       </p>
 
-      {/* Divider */}
+      
       <div className="border-t border-dashed border-gray-300 my-4"></div>
 
-      {/* Profile */}
+      
       <div className="flex items-center gap-4">
         <div className="w-10 h-10 bg-teal-900 rounded-full">
             <img src={review.user_photoURL} alt="" />

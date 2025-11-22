@@ -5,8 +5,8 @@ import { FaCircleArrowUp } from 'react-icons/fa6';
 
 const Navbar = () => {
   const links = <>
-    <li><a>Item 1</a></li>
-    <li><a>Item 3</a></li>
+    <Link to={'/'}><li><a>Home</a></li></Link>
+    <Link to={'/coverage'}><li><a>Coverage</a></li></Link>
   </>
   return (
     <div>
