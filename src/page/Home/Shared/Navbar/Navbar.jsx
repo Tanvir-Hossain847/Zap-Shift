@@ -32,8 +32,8 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end gap-3">
-          <a className="btn">Sign-Up</a>
-          <a className="btn btn-primary text-black">Sign-In</a>
+          <Link to={'/registration'}><a className="btn">Sign-Up</a></Link>
+          <Link to={'/login'}><a className="btn btn-primary text-black">Login</a></Link>
           <div className="rotate-45 text-4xl">
           <FaCircleArrowUp></FaCircleArrowUp>
           </div>
