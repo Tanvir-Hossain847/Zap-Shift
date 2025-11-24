@@ -1,18 +1,19 @@
 import React from 'react';
 import useAuth from '../Hooks/useAuth';
-import { Navigate } from 'react-router';
+import { Navigate, useLocation } from 'react-router';
 
-const PrivateRouter = ({children}) => {
-    const {user, loading} = useAuth()
+const PrivateRouter = ({ children }) => {
+    const { user, loading } = useAuth()
+    const location = useLocation()
 
-    if(loading){
-        <div className="min-h-screen grid place-content-center">
+    if (loading) {
+        return <div className="min-h-screen grid place-content-center">
             <span className="loading loading-bars loading-xl"></span>
         </div>
+    }
 
-        if(!user){
-            <Navigate to={'/login'}></Navigate>
-        }
+    if (!user) {
+        return <Navigate state={location.pathname} to={'/login'}></Navigate>
     }
     return children;
 };

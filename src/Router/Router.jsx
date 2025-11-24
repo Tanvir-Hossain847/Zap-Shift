@@ -5,6 +5,8 @@ import Coverage from "../page/Coverge/Coverage";
 import AuthLayout from "../Layout/AuthLayout";
 import Login from "../page/AuthPages/Login";
 import Registration from "../page/AuthPages/Registration";
+import PrivateRouter from "./PrivateRouter";
+import Rider from "../page/Rider/Rider";
 
 export const router = createBrowserRouter([
   {
@@ -14,6 +16,10 @@ export const router = createBrowserRouter([
         {
             index: true,
             Component: Home,
+        },
+        {
+          path: '/rider',
+          element: <PrivateRouter><Rider></Rider></PrivateRouter>
         },
         {
           path: '/coverage',

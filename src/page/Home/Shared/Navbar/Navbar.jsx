@@ -44,14 +44,14 @@ const Navbar = () => {
         <div className="navbar-end gap-3">
           {
             user ?
-            <div className="gap-2">
+            <div className="space-x-2">
               <button onClick={handleLogOut} className='btn'>Log-Out</button>
               <Link to={'/rider'}><button className='btn btn-primary text-black'>Be A Rider</button></Link>
             </div> 
             :
             <div className="flex gap-3">
-          <Link to={'/registration'}><a className="btn">Sign-Up</a></Link>
-          <Link to={'/login'}><a className="btn btn-primary text-black">Login</a></Link>
+          <Link to={'/login'}><a className="btn">Login</a></Link>
+          <Link to={'/rider'}><a className="btn btn-primary text-black">Be A Rider</a></Link>
           <div className="rotate-45 text-4xl">
           <FaCircleArrowUp></FaCircleArrowUp>
           </div>

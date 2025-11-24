@@ -1,11 +1,12 @@
 import { useForm } from 'react-hook-form';
 import useAuth from '../../Hooks/useAuth';
-import { Link, useNavigation } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
 
 const Login = () => {
 
     const { signInUser, signINGoogle } = useAuth()
-    const navigate = useNavigation()
+    const navigate = useNavigate()
+    const location = useLocation()
 
         const { register, handleSubmit, formState: {errors}, reset } = useForm();
         const handleRegistration = (data) => {
@@ -14,7 +15,7 @@ const Login = () => {
             .then(result => {
                 console.log(result.user);
                 reset()
-                navigate('/')
+                navigate(location.state || '/')
             })
             .catch(error => {
                 console.log(error)
@@ -25,6 +26,7 @@ const Login = () => {
             signINGoogle()
             .then(result => {
                 console.log(result);
+                navigate(location.state || '/')
             })
             .catch(error =>{
                 console.log(error);
@@ -58,7 +60,7 @@ const Login = () => {
                 
                 <button className="btn btn-neutral mt-4">Login</button>
                 <button type='button' onClick={handleGoogleLogin} className="btn btn-secondary mt-4">Sign-In With Google</button>
-            <h1 className='mt-2 text-lg'>Don't have an account yet <span><Link to={'/registration'}>Register</Link></span> now</h1>
+            <h1 className='mt-2 text-lg'>Don't have an account yet <span><Link state={location.state} to={'/registration'}>Register</Link></span> now</h1>
             </fieldset>
             </form>
         </div>
