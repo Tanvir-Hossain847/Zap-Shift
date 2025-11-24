@@ -2,12 +2,22 @@ import React from 'react';
 import Logo from '../../../../components/Logo/Logo';
 import { Link } from 'react-router';
 import { FaCircleArrowUp } from 'react-icons/fa6';
+import useAuth from '../../../../Hooks/useAuth';
 
 const Navbar = () => {
+  const { user, signOutUser } = useAuth()
   const links = <>
     <Link to={'/'}><li><a>Home</a></li></Link>
     <Link to={'/coverage'}><li><a>Coverage</a></li></Link>
   </>
+
+  const handleLogOut = () =>{
+    signOutUser()
+    .then()
+    .catch(error => {
+      console.log(error);
+    })
+  }
   return (
     <div>
       <div className="navbar bg-base-100 shadow-sm rounded-xl">
@@ -32,11 +42,21 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end gap-3">
+          {
+            user ?
+            <div className="gap-2">
+              <button onClick={handleLogOut} className='btn'>Log-Out</button>
+              <Link to={'/rider'}><button className='btn btn-primary text-black'>Be A Rider</button></Link>
+            </div> 
+            :
+            <div className="flex gap-3">
           <Link to={'/registration'}><a className="btn">Sign-Up</a></Link>
           <Link to={'/login'}><a className="btn btn-primary text-black">Login</a></Link>
           <div className="rotate-45 text-4xl">
           <FaCircleArrowUp></FaCircleArrowUp>
           </div>
+            </div>
+          }
         </div>
       </div>
     </div>
