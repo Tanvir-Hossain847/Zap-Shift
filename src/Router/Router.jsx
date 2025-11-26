@@ -7,25 +7,31 @@ import Login from "../page/AuthPages/Login";
 import Registration from "../page/AuthPages/Registration";
 import PrivateRouter from "./PrivateRouter";
 import Rider from "../page/Rider/Rider";
+import Parcel from "../page/Parcel/Parcel";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     Component: HomeLayout,
     children: [
-        {
-            index: true,
-            Component: Home,
-        },
-        {
-          path: '/rider',
-          element: <PrivateRouter><Rider></Rider></PrivateRouter>
-        },
-        {
-          path: '/coverage',
-          Component: Coverage,
-          loader: () => fetch("/data/warehouses.json")
-        }
+      {
+        index: true,
+        Component: Home,
+      },
+      {
+        path: '/rider',
+        element: <PrivateRouter><Rider></Rider></PrivateRouter>
+      },
+      {
+        path: '/send-parcel',
+        element: <PrivateRouter><Parcel></Parcel></PrivateRouter>,
+        loader: () => fetch("/data/warehouses.json")
+      },
+      {
+        path: '/coverage',
+        Component: Coverage,
+        loader: () => fetch("/data/warehouses.json")
+      }
     ]
   },
   {
