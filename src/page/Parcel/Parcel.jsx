@@ -2,6 +2,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useLoaderData } from 'react-router';
 import Swal from 'sweetalert2';
+import useAxiosSecure from '../../Hooks/useAxiosSecure';
 
 const Parcel = () => {
     const { register, handleSubmit, watch } = useForm()
@@ -18,6 +19,7 @@ const Parcel = () => {
         const districts = districtsRegion.map(district => district.district)
         return districts
     }
+    const axiosInstence = useAxiosSecure()
 
 
 
@@ -55,6 +57,12 @@ const Parcel = () => {
         })
         .then((result) => {
             if (result.isConfirmed) {
+
+                axiosInstence.post("/parcelInfo", data)
+                .then(res => {
+                    console.log(res.data);
+                    
+                })
                 // Swal.fire({
                 //     title: "Deleted!",
                 //     text: "Your file has been deleted.",
