@@ -14,7 +14,7 @@ const CallToAction = () => {
                     <p className='text-white opacity-75'>We offer the lowest delivery charge with the highest value along with 100% safety of your product. Pathao courier delivers your parcels in every corner of Bangladesh right on time.</p>
                     <div className="flex items-center gap-10">
                         <button className='btn btn-primary text-black'>Become A Marchent</button>
-                        <button className='btn btn-ghost border-2 border-primary text-primary rounded-4xl'>Earn With ZapShift</button>
+                        <button className='btn btn-ghost border-2 border-primary hover:text-secondary hover:border-secondary text-primary rounded-4xl'>Earn With ZapShift</button>
                     </div>
                 </div>
                 <div className="">

@@ -1,8 +1,8 @@
-import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useLoaderData } from 'react-router';
 import Swal from 'sweetalert2';
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
+import useAuth from '../../Hooks/useAuth';
 
 const Parcel = () => {
     const { register, handleSubmit, watch } = useForm()
@@ -20,6 +20,7 @@ const Parcel = () => {
         return districts
     }
     const axiosInstence = useAxiosSecure()
+    const {user} = useAuth()
 
 
 
@@ -113,7 +114,11 @@ const Parcel = () => {
                         <h1 className='text-secondary font-bold text-2xl'>Senders Details</h1>
                         <div className="">
                             <label class="label text-lg font-bold text-secondary">Sender Name</label>
-                            <input {...register('Sender_Name')} type="text" class="input w-full" placeholder="Sender Name" />
+                            <input {...register('Sender_Name')} defaultValue={user.displayName} type="text" class="input w-full" placeholder="Sender Name" />
+                        </div>
+                        <div className="">
+                            <label class="label text-lg font-bold text-secondary">Sender Email</label>
+                            <input {...register('Sender_Email')} defaultValue={user.email} type="text" class="input w-full" placeholder="Sender Email" />
                         </div>
                         <div className="">
                             <label class="label text-lg font-bold text-secondary">Adress</label>
@@ -149,12 +154,17 @@ const Parcel = () => {
                             <textarea {...register('Pick-Up_Description')} className="textarea w-full" placeholder='Pick-Up Descriptions'></textarea>
                         </div>
                     </fieldset>
+
                     {/* Recivers-Details */}
                     <fieldset class="fieldset w-full space-y-2">
                         <h1 className='text-secondary font-bold text-2xl'>Recivers Details</h1>
                         <div className="">
                             <label class="label text-lg font-bold text-secondary">Reciver Name</label>
                             <input {...register('Reciver_Name')} type="text" class="input w-full" placeholder="Reciver Name" />
+                        </div>
+                        <div className="">
+                            <label class="label text-lg font-bold text-secondary">Reciver Email</label>
+                            <input {...register('Reciver_Email')} type="text" class="input w-full" placeholder="Reciver Email" />
                         </div>
                         <div className="">
                             <label class="label text-lg font-bold text-secondary">Adress</label>
