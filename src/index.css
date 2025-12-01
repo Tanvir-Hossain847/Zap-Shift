@@ -17,3 +17,16 @@ body{
   font-optical-sizing: auto;
   background-color: #EAECED;
 }
+
+.active:focus{
+  background-color: #CAEB66;
+  font-weight: bold;
+  font-size: medium;
+}
+
+.active:hover{
+  font-weight: bold;
+  margin-left: 10px;
+  transition: all;
+  transition-duration: 150ms;
+}

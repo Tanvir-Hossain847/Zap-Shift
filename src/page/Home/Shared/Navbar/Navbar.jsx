@@ -10,6 +10,7 @@ const Navbar = () => {
     <Link to={'/'}><li><a>Home</a></li></Link>
     <Link to={'/coverage'}><li><a>Coverage</a></li></Link>
     <Link to={'/send-parcel'}><li><a>Send A Parcel</a></li></Link>
+    <Link to={'/dashboard'}><li><a>Dashboard</a></li></Link>
   </>
 
   const handleLogOut = () =>{
