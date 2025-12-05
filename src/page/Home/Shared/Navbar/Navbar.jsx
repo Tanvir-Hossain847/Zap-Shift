@@ -15,7 +15,7 @@ const Navbar = () => {
 
     {
       user && <>
-      <Link to={'/dashboard/my-parcel'}><li><a>My_Parcel</a></li></Link>
+      <Link to={'/dashboard/my-parcel'}><li><a>My Parcel</a></li></Link>
       </>
     }
 

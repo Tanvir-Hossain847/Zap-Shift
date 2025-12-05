@@ -5,7 +5,7 @@ import useAxiosSecure from '../../Hooks/useAxiosSecure';
 import useAuth from '../../Hooks/useAuth';
 
 const Parcel = () => {
-    const { register, handleSubmit, watch } = useForm()
+    const { register, handleSubmit, watch, reset } = useForm()
     const regions = useLoaderData()
     const unfilteredRegion = regions.map(d => d.region)
     console.log(unfilteredRegion);
@@ -47,6 +47,8 @@ const Parcel = () => {
             }
         }
         console.log(cost);
+        data.cost = cost;
+
         Swal.fire({
             title: "Confirm The Request?",
             text: `You Delivary Would cost ${cost}`,
@@ -62,8 +64,8 @@ const Parcel = () => {
                 axiosInstence.post("/parcelInfo", data)
                 .then(res => {
                     console.log(res.data);
-                    
                 })
+                reset()
                 // Swal.fire({
                 //     title: "Deleted!",
                 //     text: "Your file has been deleted.",

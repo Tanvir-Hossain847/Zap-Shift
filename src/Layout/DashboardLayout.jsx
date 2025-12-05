@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink, Outlet } from 'react-router';
 import Logo from '../components/Logo/Logo';
-import { FaChartSimple, FaDashcube, FaDoorClosed, FaDoorOpen, FaMap, FaMobileScreen, FaScreenpal, FaShop, FaTag, FaUser } from 'react-icons/fa6';
+import { FaChartSimple, FaDashcube, FaDoorClosed, FaDoorOpen, FaMap, FaMobileScreen, FaParachuteBox, FaScreenpal, FaShop, FaTag, FaUser } from 'react-icons/fa6';
 import { FaCog } from 'react-icons/fa';
 
 const DashboardLayout = () => {
@@ -41,8 +41,18 @@ const DashboardLayout = () => {
                                     </div>
                                 </button></NavLink>
                             </li>
+                           
 
                             {/* List item */}
+                            <li>
+                                <NavLink to={'/dashboard/my-parcel'}><button className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="Dashboard">
+                                    {/* Home icon */}
+                                    <div className="flex items-center gap-2">
+                                    <FaParachuteBox></FaParachuteBox>
+                                    <span className="is-drawer-close:hidden">My Parcels</span>
+                                    </div>
+                                </button></NavLink>
+                            </li>
                             <li>
                                 <NavLink><button className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="Delivery">
                                     {/* Settings icon */}
